@@ -1,0 +1,26 @@
+{
+  "name": "uniapp-plugin",
+  "version": "1.0.0",
+  "description": "此库包含多个uniapp插件、源码及其文档",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeLiou/UniappPlugins.git"
+  },
+  "keywords": [
+    "uniapp",
+    "plugin",
+    "省市区街道",
+    "四级",
+    "地址选择器"
+  ],
+  "author": "lukeliou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeLiou/UniappPlugins/issues"
+  },
+  "homepage": "https://github.com/LukeLiou/UniappPlugins#readme"
+}
