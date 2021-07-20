@@ -26,3 +26,6 @@
 | cancel  | 点击取消按钮时触发 | -                                                            |
 | confirm | 点击确认按钮时触发                                   | 选中的省市区街道地址对象,包含如下属性：fullAreaText,provinceCode,,cityCode,areaCode,streetCode,provinceObj,cityObj,areaObj,streetObj |
 
+### 作者想说
+
+欢迎大家积极评论与star
