@@ -10,7 +10,7 @@
         <text class="title-txt" @click.stop="handleSubmit">确定</text>
       </view>
       <!-- 已选择的地址信息 -->
-      <view class="main-select">
+      <view class="main-select" :class="[selectAreaLevelLimit == 3 ? 'w33_percent' : '']">
         <text
           v-if="showIndex == 0 || provinceObj.areaName"
           :class="showIndex == 0 ? 'select' : ''"
@@ -30,7 +30,7 @@
           >{{ areaObj.areaName || "请选择" }}</text
         >
         <text
-          v-if="showIndex == 3 || streetObj.areaName"
+          v-if="(showIndex == 3 || streetObj.areaName) && selectAreaLevelLimit == 4"
           :class="showIndex == 3 ? 'select' : ''"
           @click="anewSelect(3)"
           >{{ streetObj.areaName || "请选择" }}</text
@@ -71,7 +71,7 @@
             <text>{{ item.areaName }}</text>
           </view>
         </view>
-        <view v-if="showIndex == 3">
+        <view v-if="showIndex == 3 && selectAreaLevelLimit == 4">
           <view
             class="list-box"
             :class="streetObj.areaCode == item.areaCode ? 'active' : ''"
@@ -97,6 +97,10 @@ export default {
         
       },
     },
+    selectAreaLevelLimit:{
+      type: Number,
+      default: 4,
+    }
   },
   data() {
     return {
@@ -166,13 +170,23 @@ export default {
           _fullAreaText.push(item.areaName);
         }
       });
-      if (_fullAreaText.length !== 4) {
-        uni.showToast({
-          icon: "none",
-          title: "地址需精确到街道",
-        });
-        return
-      }
+      if (this.selectAreaLevelLimit == 3) {
+        if (_fullAreaText.length !== 3) {
+          uni.showToast({
+            icon: "none",
+            title: "地址需精确到地区",
+          });
+          return
+        }
+      } else {
+        if (_fullAreaText.length !== this.selectAreaLevelLimit) {
+          uni.showToast({
+            icon: "none",
+            title: "地址需精确到街道",
+          });
+          return
+        }
+      }  
       let areaInfoObj = {
         fullAreaTextInitial: _fullAreaText.toString(),
         fullAreaText: _fullAreaText.toString().replace(/,/g, ""),
@@ -297,10 +311,14 @@ export default {
           break;
         case 2:
           //选择区
-          this.handleGetMap(obj, "area");
-          this.areaObj = obj;
-          this.showIndex = 3;
-          this.streetsData = [];
+          if (this.selectAreaLevelLimit == 3) {
+            this.areaObj = obj;
+          } else {
+            this.handleGetMap(obj, "area");
+            this.areaObj = obj;
+            this.showIndex = 3;
+            this.streetsData = [];
+          }
           break;
         case 3:
           //选择街道
