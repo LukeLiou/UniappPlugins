@@ -1,4 +1,4 @@
-# Unapt 插件库
+# uniapp 插件库
 
 ### 简述
 
@@ -6,4 +6,4 @@
 
 ### 目录
 
-- UniAddressSelector：省市区街道地址选择器
+- UniAddressSelector：省市区|省市区街道地址选择器

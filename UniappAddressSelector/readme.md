@@ -6,7 +6,9 @@
 2. 支持默认地区或已选择地区显示
 3. 数据来源可包括高德地图api、公司封装接口返回
 
+### 预览
 
+![](/Users/lukeliou/my-doc/github/dcloud/UniappPlugins/UniappAddressSelector/UniAddressSelector_watermark.gif)
 
 ### API
 
