@@ -8,7 +8,7 @@
 
 ### 预览
 
-![](/Users/lukeliou/my-doc/github/dcloud/UniappPlugins/UniappAddressSelector/UniAddressSelector_watermark.gif)
+![](https://raw.githubusercontent.com/LukeLiou/picLuke/master/images/UniAddressSelector_watermark.gif)
 
 ### API
 
@@ -17,6 +17,7 @@
 | 属性             | <span style="display:inline-block;width:80px">必填</span> | 说明                                                         | 类型   | <span style="display:inline-block;width:80px">默认值</span> |
 | :------- | ------------- | ------------------------------------------------------------ | ------ | ------ |
 | areaInfoSelected | 否 | 已选择的地址对象或默认显示地址对象，属性有：provinceObj,cityObjareaObj,streetObj | Object | {} |
+| selectAreaLevelLimit | 否 | 指定选择的级别数，如只需要选择省市区，则指定值为3 | Number | 4 |
 
 #### events
 
