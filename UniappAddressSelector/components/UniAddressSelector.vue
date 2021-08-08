@@ -3,7 +3,7 @@
     <!-- 选择器背景 -->
     <view class="page-mask"></view>
     <!-- 选择器主体 -->
-    <view class="page-main" :style="'height:' + heightCot + '%'">
+    <view class="page-main" :style="'height:60%'">
       <!-- 操作区域 包含取消和确定 -->
       <view class="main-operate">
         <text class="title-txt" @click.stop="handleCancel">取消</text>
@@ -373,6 +373,8 @@ export default {
     justify-content: flex-start;
     color: #343434;
     font-size: 30rpx;
+    height: 100rpx;
+    line-height: 100rpx;
     text {
       display: inline-block;
       width: 25%;
@@ -403,12 +405,17 @@ export default {
     color: #343434;
     font-size: 30rpx;
     width: 100%;
-    height: 70%;
+    height: 72%;
     overflow: auto;
     .list-box {
       display: flex;
       flex-direction: column;
+      height: 100rpx;
+      line-height: 100rpx;
       border-bottom: 2rpx solid #dedede;
+    }
+    .list-box:last-child{
+      border-bottom: none;
     }
     .active {
       color: #ff4242;
